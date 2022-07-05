@@ -66,7 +66,7 @@ WITH FilteredPlays AS (
 	WHERE End_Reason_Type = 'NATURAL_END_OF_TRACK') 
 SELECT Song_Name, Artist_Name, Song_Length, Play_Duration, Start_Timestamp
 FROM FilteredPlays
-WHERE Play_Duration >= (Song_Length / 20) AND YEAR(Start_Timestamp) = 2021;
+WHERE Play_Duration >= (Song_Length / 20) AND YEAR(Start_Timestamp) >= 2020;
 
 -- Calculate play count with filters
 WITH FilteredPlays AS (
@@ -77,7 +77,7 @@ WITH FilteredPlays AS (
 SELECT MAX(Song_Name) AS Song, MAX(Artist_Name) AS Artist, COUNT(Song_Name) AS Play_Count, 
 	   MAX(Song_Length) AS Length, SUM(Play_Duration) AS Time_Listened
 FROM FilteredPlays
-WHERE YEAR(Start_Timestamp) = 2021 AND Play_Duration >= (Song_Length / 20)
+WHERE YEAR(Start_Timestamp) >= 2020 AND Play_Duration >= (Song_Length / 20)
 GROUP BY Song_Name, Artist_Name
 ORDER BY Play_Count DESC;
 
@@ -120,7 +120,7 @@ FilteredPlayCounts AS (
 	SELECT MAX(Song_Name) AS Song, MAX(Artist_Name) AS Artist, COUNT(Song_Name) AS Play_Count, 
 		   MAX(Song_Length) AS Length, SUM(Play_Duration) AS Time_Listened
     FROM FilteredPlays
-	WHERE YEAR(Start_Timestamp) = 2021 AND Play_Duration >= (Song_Length / 20)
+	WHERE YEAR(Start_Timestamp) >= 2020 AND Play_Duration >= (Song_Length / 20)
 	GROUP BY Song_Name, Artist_Name) 
 SELECT DISTINCT f.Song, f.Artist, f.Play_Count, f.Length, f.Time_Listened, t.Album, t.Genre, t.Track_Year
 FROM FilteredPlayCounts AS f INNER JOIN track_information AS t ON f.Song = t.Title AND f.Artist = t.Artist
