@@ -31,3 +31,4 @@ Here are the resources I used to complete this project:
 
 1. https://support.apple.com/en-us/HT208502
 2. https://www.freecodecamp.org/news/connect-python-with-sql/
+3. https://www.figma.com
