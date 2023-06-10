@@ -9,7 +9,7 @@
 
 
 
-### [View Dashboard](https://public.tableau.com/views/AppleMusicActivityDashboard/DASH-TopSongs?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link)
+### [View Dashboard](https://public.tableau.com/views/AppleMusicActivityDashboardv2/DASH-TopSongs?:language=en-US&:display_count=n&:origin=viz_share_link)
 
 ## 
 
